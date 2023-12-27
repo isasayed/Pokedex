@@ -1,0 +1,12 @@
+﻿@if (state == LoadingContainerState.Loading)
+{
+    @Loading
+}
+else if (state == LoadingContainerState.Loaded)
+{
+    @Loaded
+}
+else if (state == LoadingContainerState.Error)
+{
+    @ErrorContent
+}
