@@ -27,15 +27,6 @@ namespace Pokedex.Components.Pages
             state = LoadingContainerState.Loaded;
             StateHasChanged();
 
-            //foreach (var item in response.results)
-            //{
-            //    var pokemon = await client.GetFromJsonAsync<Pokemon>($"pokemon/{item.name}");
-            //    item.sprites = pokemon.sprites;
-            //}
-
-            // Trigger asynchronous loading of images
-            LoadImagesAsync(client);
-
             await Task.CompletedTask;
         }
 

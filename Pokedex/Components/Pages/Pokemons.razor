@@ -1,31 +1,23 @@
-﻿@page "/Pokemons"
+﻿@page "/"
 @using Pokedex.Shared
 @attribute [StreamRendering]
 
 <PageTitle>Pokemons</PageTitle>
 
-<h1>Pokemons</h1>
+<div class="container">
+    <h1 class="mb-4">Pokemons</h1>
 
-@if (state == LoadingContainerState.Loading)
-{
-    <LoadingSpinner />
-}
-else
-{
-    <div class="container">
-        <div class="row">
+    @if (state == LoadingContainerState.Loading)
+    {
+        <LoadingSpinner />
+    }
+    else
+    {
+        <div class="row" @ref="scrollContainer" @onscroll="OnScroll">
             @foreach (var item in pokemonList.results)
             {
-                <div class="col-lg-3 mb-3">
-                    <div class="card shadow p-5">
-                        @if (item.sprites != null)
-                        {
-                            <img class="mb-3" src="@item.sprites.other.officialArtwork.front_default" />
-                        }
-                        @item.name
-                    </div>
-                </div>
+                <PokemonCard pokemon=item />
             }
         </div>
-    </div>
-}
+    }
+</div>
