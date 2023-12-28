@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.AddBlazorBootstrap();
+
 builder.Services.AddHttpClient("pokeApi", (serviceProvider, client) =>
 {
     client.BaseAddress = new Uri("https://pokeapi.co/api/v2/");

@@ -10,8 +10,10 @@
 
     public class Results
     {
+        public string id { get; set; }
         public string name { get; set; }
         public string url { get; set; }
         public Sprites sprites { get; set; }
+        public List<Types> types { get; set; }
     }
 }

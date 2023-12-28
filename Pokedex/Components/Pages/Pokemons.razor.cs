@@ -19,7 +19,7 @@ namespace Pokedex.Components.Pages
             state = LoadingContainerState.Loading;
 
             var client = _httpClientFactory.CreateClient("pokeApi");
-            var response = await client.GetFromJsonAsync<PokemonList>("pokemon/?limit=50");
+            var response = await client.GetFromJsonAsync<PokemonList>("pokemon/?limit=150");
 
             // Display the initial list
             pokemonList = response;
@@ -30,21 +30,21 @@ namespace Pokedex.Components.Pages
             await Task.CompletedTask;
         }
 
-        private async Task LoadImagesAsync(HttpClient client)
-        {
-            foreach (var item in pokemonList.results)
-            {
-                var pokemon = await client.GetFromJsonAsync<Pokemon>($"pokemon/{item.name}");
-                item.sprites = pokemon.sprites;
+        //private async Task LoadImagesAsync(HttpClient client)
+        //{
+        //    foreach (var item in pokemonList.results)
+        //    {
+        //        var pokemon = await client.GetFromJsonAsync<Pokemon>($"pokemon/{item.name}");
+        //        item.sprites = pokemon.sprites;
             
-                StateHasChanged();
-            }
+        //        StateHasChanged();
+        //    }
 
 
-            foreach (var item in pokemonList.results)
-            {
-                Console.WriteLine(item.sprites.other.officialArtwork.front_default);
-            }
-        }
+        //    foreach (var item in pokemonList.results)
+        //    {
+        //        Console.WriteLine(item.sprites.other.officialArtwork.front_default);
+        //    }
+        //}
     }
 }
