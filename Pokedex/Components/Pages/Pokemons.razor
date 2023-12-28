@@ -1,13 +1,13 @@
 ﻿@page "/"
+@attribute [StreamRendering]
 @using Pokedex.Shared
 @using Pokedex.Components.Partials
-@attribute [StreamRendering]
 
 <PageTitle>Pokemons</PageTitle>
 
 <div class="container">
     <h1 class="mb-4">Pokemons</h1>
-    <Button Color="ButtonColor.Primary" @onclick="async () => await EditEmployeeAsync()">Full screen</Button>
+    @* <Button Color="ButtonColor.Primary" @onclick="() => modal.ShowAsync()">Full screen</Button> *@
 
     @if (state == LoadingContainerState.Loading)
     {
@@ -16,33 +16,19 @@
     else
     {
         <div class="row">
-            @* <Button Color="ButtonColor.Primary" @onclick="OnShowModalClick">Show Modal</Button> *@
             @foreach (var item in pokemonList.results)
             {
-                <PokemonCard pokemon=item />
+                <PokemonCard pokemon=item modal=modal />
             }
         </div>
     }
 </div>
 
-<Modal @ref="modal" />
+<Modal @ref="modal" title="Full screen" Fullscreen="ModalFullscreen.Always">
+    <BodyTemplate>...</BodyTemplate>
+</Modal>
 
 @code {
     private Modal modal = default!;
-
-    private async Task EditEmployeeAsync()
-    {
-        Console.Write("function called");
-        await modal.ShowAsync<Pokemons>(title: "Edit Employee");
-    }
-
-    // private async Task OnShowModalClick()
-    // {
-    //     await modal.ShowAsync();
-    // }
-
-    // private async Task OnHideModalClick()
-    // {
-    //     await modal.HideAsync();
-    // }
 }
+

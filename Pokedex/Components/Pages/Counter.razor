@@ -1,5 +1,4 @@
 ﻿@page "/counter"
-@rendermode InteractiveServer
 
 <PageTitle>Counter</PageTitle>
 
@@ -8,12 +7,29 @@
 <p role="status">Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<Button Color="ButtonColor.Primary" @onclick="() => ShowModal(ModalType.Primary)">Show Primary Modal</Button>
 
 @code {
+    [Inject]
+    ModalService ModalService { get; set; } = default!;
+
     private int currentCount = 0;
 
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+    private async Task ShowModal(ModalType modalType)
+    {
+        Console.WriteLine("hi");
+        var modalOption = new ModalOption
+            {
+                Title = "Modal title",
+                Message = "Modal body text goes here.",
+                Type = modalType,
+            };
+        Console.WriteLine(modalOption);
+        await ModalService.ShowAsync(modalOption);
     }
 }

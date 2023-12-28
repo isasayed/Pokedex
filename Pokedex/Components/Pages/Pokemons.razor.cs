@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BlazorBootstrap;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using Pokedex.Models;
 using Pokedex.Shared;
@@ -36,7 +37,7 @@ namespace Pokedex.Components.Pages
         //    {
         //        var pokemon = await client.GetFromJsonAsync<Pokemon>($"pokemon/{item.name}");
         //        item.sprites = pokemon.sprites;
-            
+
         //        StateHasChanged();
         //    }
 

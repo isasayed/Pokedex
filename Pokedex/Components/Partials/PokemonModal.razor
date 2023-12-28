@@ -1,0 +1,37 @@
+﻿@using Pokedex.Models
+
+@if (pokemon == null)
+{
+    <label>loading..</label>
+}
+else
+{
+    <img src="@pokemon.sprites.other.officialArtwork.front_default" />
+
+    foreach (var item in pokemon.types)
+    {
+        <span class="badge ms-1">@item.type.name</span>
+    }
+}   
+
+@code {
+    [Inject]
+    public IHttpClientFactory _httpClientFactory { get; set; }
+
+    [Parameter] 
+    public string name { get; set; }
+
+    private Pokemon? pokemon;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var client = _httpClientFactory.CreateClient("pokeApi");
+        pokemon = await client.GetFromJsonAsync<Pokemon>($"pokemon/{name}");
+
+        StateHasChanged();
+        await Task.CompletedTask;
+    }
+
+
+
+}
