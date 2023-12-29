@@ -10,9 +10,35 @@
     <div class="card__wrapper">
         <h1 class="mb-4">Pokemons</h1>
 
-        <button class="cssbuttons-io" @onclick="() => ShowGenTwo()">
+      @*   <button class="cssbuttons-io" @onclick="() => ShowGenTwo()">
             <span>Generation Two</span>
-        </button>
+        </button> *@
+
+        <div class="dropdown">
+            <input type="checkbox" id="dropdown">
+
+            <label class="dropdown__face" for="dropdown">
+                <div class="dropdown__text">Generation</div>
+
+                <div class="dropdown__arrow"></div>
+            </label>
+
+            <ul class="dropdown__items">
+                <li @onclick="() => ShowGenOne()">I</li>
+                <li @onclick="() => ShowGenTwo()">II</li>
+                <li>III</li>
+                <li>IV</li>
+                <li>V</li>
+            </ul>
+        </div>
+
+        <svg>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                <feBlend in="SourceGraphic" in2="goo" />
+            </filter>
+        </svg>
 
         <div class="group">
             <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
