@@ -13,6 +13,13 @@ builder.Services.AddHttpClient("pokeApi", (serviceProvider, client) =>
     client.BaseAddress = new Uri("https://pokeapi.co/api/v2/");
 });
 
+//! for one base url over the application
+//builder.Services.AddScoped(sp => {
+//    var client = new HttpClient();
+//    client.BaseAddress = new("https://pokeapi.co/api/v2/");
+//    return client;
+//});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

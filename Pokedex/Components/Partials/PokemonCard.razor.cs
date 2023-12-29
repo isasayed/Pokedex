@@ -14,6 +14,7 @@ namespace Pokedex.Components.Partials
 
         [Parameter]
         public Models.Results pokemon { get; set; }
+        
         [Parameter]
         public Modal modal { get; set; }
 

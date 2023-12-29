@@ -1,5 +1,6 @@
 ﻿<div class="col-lg-3 col-md-4 col-sm-6 mb-5">
-    <div class="card shadow-lg @(pokemon.types != null ? utils.getCardClass(pokemon.types[0].type.name) : "")" @onclick="() => ShowEmployeeComponent()">
+    @* <div class="card shadow-lg @(pokemon.types != null ? utils.getCardClass(pokemon.types[0].type.name) : "")" @onclick="() => ShowEmployeeComponent()"> *@
+        <div class="card shadow-lg bg-@(pokemon.types != null ? pokemon.types[0].type.name : "")" @onclick="() => ShowEmployeeComponent()">
         <div class="card-badge text-center mb-1">
             @if (pokemon.types != null)
             {
