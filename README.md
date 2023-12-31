@@ -1,6 +1,6 @@
-# PokeBlazor - A Pokedex Web Application
+# Pokedex - A Pokedex Web Application
 
-Welcome to PokeBlazor, a web application built using the Blazor Server framework that serves as your go-to Pokedex! PokeBlazor fetches data from [PokeAPI](https://pokeapi.co/), providing a comprehensive and interactive platform for exploring information about various Pokemon.
+Welcome to Pokedex, a web application built using the Blazor Server framework that serves as your go-to Pokedex! Pokedex fetches data from [PokeAPI](https://pokeapi.co/), providing a comprehensive and interactive platform for exploring information about various Pokemon.
 
 ![image](https://github.com/isasayed/Pokedex/assets/47685015/1d0a1b6b-4c0f-4242-ae6a-c17ba0d8eebf)
 
